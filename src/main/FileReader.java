@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class FileReader {
 
-    private static final String PATH = "C:\\Users\\mihae\\IdeaProjects\\AdventOfCode2018\\src\\resource\\";
+    private static final String PATH = "." + "/" + "src" + "/" + "resource" + "/";
     private static final String EXTENSION = ".txt";
 
     private Scanner scanner;
