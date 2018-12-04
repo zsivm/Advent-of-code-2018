@@ -28,19 +28,41 @@ package main;
 
     --- Part Two ---
 
+    Confident that your list of box IDs is complete, you're ready to find the boxes full of prototype fabric.
+
+    The boxes will have IDs which differ by exactly one character at the same position in both strings. For example, given the following box IDs:
+
+    abcde
+    fghij
+    klmno
+    pqrst
+    fguij
+    axcye
+    wvxyz
+
+    The IDs abcde and axcye are close, but they differ by two characters (the second and fourth).
+    However, the IDs fghij and fguij differ by exactly one character, the third (h and u).
+    Those must be the correct boxes.
+
+    What letters are common between the two correct box IDs? (In the example above,
+    this is found by removing the differing character from either ID, producing fgij.)
+
  */
 
-
-import javafx.util.Pair;
-
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Challenge2 {
 
-    public void countCharacters(Scanner sc) {
+    public int countCharacters(Scanner sc) {
         int number = 1;
+        int duplicates = 0;
+        int triplicates = 0;
+        boolean hadDuplicate = false;
+        boolean hadTriplicate = false;
         Map<String, Integer> map = new HashMap<>();
 
         while(sc.hasNextLine()) {
@@ -61,13 +83,65 @@ public class Challenge2 {
                 number = 1;
             }
 
-            System.out.println("--- new word ---");
-            System.out.println(map.toString());
+            hadDuplicate = false;
+            hadTriplicate = false;
+
+            for(Map.Entry<String, Integer> entry : map.entrySet()) {
+                if(entry.getValue() == 2 && !hadDuplicate) {
+                    duplicates++;
+                    hadDuplicate = true;
+                }
+
+                if(entry.getValue() == 3 && !hadTriplicate) {
+                    triplicates++;
+                    hadTriplicate = true;
+                }
+            }
+
             map.clear();
+
         }
 
+        return duplicates * triplicates;
     }
 
+    public void getCommonCharacters(Scanner sc) {
+
+        List<String> words = new ArrayList<>();
+        String actual = "";
+        String other = "";
+        int countSameChars = 0;
 
 
+        while(sc.hasNextLine()) {
+            words.add(sc.nextLine());
+        }
+
+        for(int i = 0; i < words.size() - 1; i++) {
+            actual = words.get(i);
+            for(int j = i + 1; j < words.size(); j++) {
+                other = words.get(j);
+                for(int k = 0; k < actual.length(); k++) {
+                    if(actual.charAt(k) == other.charAt(k)) {
+                        countSameChars++;
+                    }
+                }
+
+                if(countSameChars == actual.length() - 1) {
+                    System.out.println("actual: " + actual + " , other: " + other);
+                    printCommonChars(actual, other);
+                }
+                countSameChars = 0;
+            }
+        }
+    }
+
+    private void printCommonChars(String actual, String other) {
+        System.out.print("Soulution: " );
+        for(int i = 0; i < actual.length(); i++) {
+            if(actual.charAt(i) == other.charAt(i)) {
+                System.out.print(actual.charAt(i));
+            }
+        }
+    }
 }
