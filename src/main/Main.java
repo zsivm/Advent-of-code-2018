@@ -32,5 +32,7 @@ public class Main {
 
         // part 2
         //ch2.getCommonCharacters(sc);
+
+        // ----- Challenge #3 -----
     }
 }
