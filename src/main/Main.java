@@ -11,26 +11,18 @@ public class Main {
     private static final String TEST = "test";
 
     public static void main(String[] args) throws FileNotFoundException {
-        FileReader fileReader = new FileReader();
-        Scanner sc = fileReader.readFile(TEST);
-
         // ----- Challenge #1 -----
-
-        // part1
-        //Challenge1 ch1 = new Challenge1();
-        //System.out.println(ch1.sumFrequencies(sc));
-
-        // part 2
-        //sc = fileReader.readFile(CHALLENGE_1);
-        //System.out.println(ch1.reachesFrequencyTwiceFirst(sc, CHALLENGE_1));
+        Challenge1 ch1 = new Challenge1(CHALLENGE_1);
+        System.out.println("Day 1/1: " + ch1.sumFrequencies());
+        System.out.println("Day 1/2: " + ch1.reachesFrequencyTwiceFirst());
 
         // ----- Challenge #2 -----
-        //Challenge2 ch2 = new Challenge2();
+        Challenge2 ch2 = new Challenge2(CHALLENGE_2);
+        System.out.println("Day 2/1: " + ch2.countCharacters());
+        System.out.println("Day 2/2: " + ch2.getCommonCharacters());
 
-        // part 1
-        //System.out.println(ch2.countCharacters(sc));
+        // ----- Challenge #3 -----
+        Challenge3 ch3 = new Challenge3(CHALLENGE_3);
 
-        // part 2
-        //ch2.getCommonCharacters(sc);
     }
 }
