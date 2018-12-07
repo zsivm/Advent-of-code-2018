@@ -1,8 +1,5 @@
 package main;
 
-import java.io.FileNotFoundException;
-import java.util.Scanner;
-
 public class Main {
 
     private static final String CHALLENGE_1 = "challenge_1";
@@ -10,7 +7,7 @@ public class Main {
     private static final String CHALLENGE_3 = "challenge_3";
     private static final String TEST = "test";
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         // ----- Challenge #1 -----
         Challenge1 ch1 = new Challenge1(CHALLENGE_1);
         System.out.println("Day 1/1: " + ch1.sumFrequencies());
@@ -23,6 +20,5 @@ public class Main {
 
         // ----- Challenge #3 -----
         Challenge3 ch3 = new Challenge3(CHALLENGE_3);
-
     }
 }
