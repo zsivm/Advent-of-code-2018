@@ -51,12 +51,19 @@ import java.util.Scanner;
     +7, +7, -2, -7, -4 first reaches 14 twice.
     What is the first frequency your device reaches twice?
  */
-public class Challenge1 {
+public class Challenge1 extends FileReader {
 
     List<Integer> sums = new ArrayList<>();
     HashSet<Integer> set = new HashSet<>();
 
-    public int sumFrequencies(Scanner sc) {
+    public Challenge1(String fileName) {
+        super(fileName);
+    }
+
+    public int sumFrequencies() {
+
+        Scanner sc = readFile();
+
         int sum = 0;
 
         while(sc.hasNextLine()) {
@@ -66,7 +73,9 @@ public class Challenge1 {
         return sum;
     }
 
-    public int reachesFrequencyTwiceFirst(Scanner sc, String fileName) throws FileNotFoundException {
+    public int reachesFrequencyTwiceFirst() {
+
+        Scanner sc = readFile();
 
         int sum = 0;
         sums.add(sum);
@@ -75,12 +84,13 @@ public class Challenge1 {
         while(sc.hasNextLine()) {
             sum += Integer.parseInt(sc.nextLine());
             sums.add(sum);
+
             if (containsDuplicate(sum)) {
                 return sum;
             }
+
             if(!sc.hasNextLine()) {
-                FileReader fileReader = new FileReader();
-                sc = fileReader.readFile(fileName);
+               sc = readFile();
             }
         }
 

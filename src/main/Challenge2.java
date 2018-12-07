@@ -49,15 +49,22 @@ package main;
 
  */
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Challenge2 {
+public class Challenge2 extends FileReader {
 
-    public int countCharacters(Scanner sc) {
+    public Challenge2(String fileName) {
+        super(fileName);
+    }
+
+    public int countCharacters() {
+
+        Scanner sc = readFile();
         int number = 1;
         int duplicates = 0;
         int triplicates = 0;
@@ -105,11 +112,13 @@ public class Challenge2 {
         return duplicates * triplicates;
     }
 
-    public void getCommonCharacters(Scanner sc) {
+    public String getCommonCharacters() {
 
+        Scanner sc = readFile();
         List<String> words = new ArrayList<>();
-        String actual = "";
-        String other = "";
+        String actual;
+        String other;
+        String commonChars = "";
         int countSameChars = 0;
 
 
@@ -128,20 +137,23 @@ public class Challenge2 {
                 }
 
                 if(countSameChars == actual.length() - 1) {
-                    System.out.println("actual: " + actual + " , other: " + other);
-                    printCommonChars(actual, other);
+                    commonChars = getCommonChars(actual, other);
                 }
                 countSameChars = 0;
             }
         }
+
+        return commonChars;
     }
 
-    private void printCommonChars(String actual, String other) {
-        System.out.print("Soulution: " );
+    private String getCommonChars(String actual, String other) {
+        String common = "";
         for(int i = 0; i < actual.length(); i++) {
             if(actual.charAt(i) == other.charAt(i)) {
-                System.out.print(actual.charAt(i));
+                common += actual.charAt(i);
             }
         }
+
+        return common;
     }
 }
