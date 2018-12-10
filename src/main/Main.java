@@ -5,6 +5,7 @@ public class Main {
     private static final String CHALLENGE_1 = "challenge_1";
     private static final String CHALLENGE_2 = "challenge_2";
     private static final String CHALLENGE_3 = "challenge_3";
+    private static final String CHALLENGE_4 = "challenge_4";
     private static final String TEST = "test";
 
     public static void main(String[] args) {
@@ -21,8 +22,12 @@ public class Main {
         System.out.println("Day 2/2: " + ch2.getCommonCharacters());
         */
         // ----- Challenge #3 -----
+        /*
         Challenge3 ch3 = new Challenge3(CHALLENGE_3);
         System.out.println("Day 3/1: " + ch3.countArea());
         System.out.println("Day 3/2: " + ch3.smartId());
+        */
+        Challenge4 ch4 = new Challenge4(TEST);
+        ch4.guardMostAsleep();
     }
 }
