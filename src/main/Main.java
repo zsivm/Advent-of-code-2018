@@ -9,16 +9,20 @@ public class Main {
 
     public static void main(String[] args) {
         // ----- Challenge #1 -----
+        /*
         Challenge1 ch1 = new Challenge1(CHALLENGE_1);
         System.out.println("Day 1/1: " + ch1.sumFrequencies());
         System.out.println("Day 1/2: " + ch1.reachesFrequencyTwiceFirst());
-
+        */
         // ----- Challenge #2 -----
+        /*
         Challenge2 ch2 = new Challenge2(CHALLENGE_2);
         System.out.println("Day 2/1: " + ch2.countCharacters());
         System.out.println("Day 2/2: " + ch2.getCommonCharacters());
-
+        */
         // ----- Challenge #3 -----
         Challenge3 ch3 = new Challenge3(CHALLENGE_3);
+        System.out.println("Day 3/1: " + ch3.countArea());
+        System.out.println("Day 3/2: " + ch3.smartId());
     }
 }
