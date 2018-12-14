@@ -77,14 +77,19 @@ package main;
  */
 
 
+import com.sun.deploy.util.StringUtils;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class Challenge4 extends FileReader {
 
     List<String> rows;
+    List<String> dates;
 
     Challenge4(String fileName) {
         super(fileName);
@@ -93,6 +98,13 @@ public class Challenge4 extends FileReader {
     public int guardMostAsleep() {
         Scanner sc = readFile();
         sortFile(sc);
+        dates = new ArrayList();
+
+        for(String row : rows) {
+            dates.add(row.substring(row.indexOf("[") + 1, row.indexOf("]")));
+        }
+
+        System.out.println(Arrays.toString(dates.toArray()));
 
         return 0;
     }
@@ -105,9 +117,6 @@ public class Challenge4 extends FileReader {
         }
 
         Collections.sort(this.rows);
-
-        printRows(this.rows);
-
     }
 
     private void printRows(List<String> rows) {
@@ -116,4 +125,16 @@ public class Challenge4 extends FileReader {
         }
     }
 
+    private class Guard {
+
+        private List<Date> dates;
+
+        void setDates(List<Date> dates) {
+            this.dates = dates;
+        }
+
+        List<Date> getDates() {
+            return this.dates;
+        }
+    }
 }
