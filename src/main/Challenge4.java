@@ -106,7 +106,7 @@ public class Challenge4 extends FileReader {
 
         Collections.sort(this.rows);
 
-        // printRows(this.rows);
+        printRows(this.rows);
 
     }
 
