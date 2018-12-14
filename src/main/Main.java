@@ -6,6 +6,7 @@ public class Main {
     private static final String CHALLENGE_2 = "challenge_2";
     private static final String CHALLENGE_3 = "challenge_3";
     private static final String CHALLENGE_4 = "challenge_4";
+    private static final String CHALLENGE_5 = "challenge_5";
     private static final String TEST = "test";
 
     public static void main(String[] args) {
@@ -27,7 +28,15 @@ public class Main {
         System.out.println("Day 3/1: " + ch3.countArea());
         System.out.println("Day 3/2: " + ch3.smartId());
         */
+        // ----- Challenge #4 -----
+        /*
+        // TODO
         Challenge4 ch4 = new Challenge4(TEST);
         ch4.guardMostAsleep();
+        */
+        // ----- Challenge #5 -----
+        Challenge5 ch5 = new Challenge5(CHALLENGE_5);
+        System.out.println("Day 5/1: " + ch5.reduceString());
+        System.out.println("Day 5/2: " + ch5.eliminateBadElement());
     }
 }
